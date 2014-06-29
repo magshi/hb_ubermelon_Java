@@ -21,7 +21,23 @@ div#promotion {
 
 div.jumbotron>h1 { 
   color: red;
+}
 
+div#cart {
+  width: 200px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 10px;
+  position: fixed;
+  margin-top: 50px;
+  margin-left: 750px;
+  background-color: #f3f3f3;
+  display: none;
+}
+
+a#cart-close {
+  font-size: 11px;
+  text-transform: uppercase;
 }
 
 div.melon-summary img {

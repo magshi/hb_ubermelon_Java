@@ -12,13 +12,20 @@
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="/cart"><img class="melon-cart" src="/static/img/watermelon.png"> My Melon Cart</a></li>
+                        <li><a href="/cart" id="cart-link"><img class="melon-cart" src="/static/img/watermelon.png"> My Melon Cart</a></li>
                         <li><a href="/login">Log In</a></li>
                     </ul>
                 </div>
             </div>
         </div>
         <div class="container">
+            <div id="cart">
+                <a href="">Supermelon</a>
+                <p>Qty: 5</p>
+                <div id="cart-target">
+                </div>
+                <a href="" class="btn btn-xs btn-default" id="cart-close">close</a>
+            </div>
             {% with messages = get_flashed_messages() %}
             {% if messages %}
             {% for message in messages %}
@@ -30,5 +37,34 @@
             {% endwith %}
             {% block body %}{% endblock %}
         </div>
+        <script>
+            function hideBlackoutScreen() {
+                var blackout = $("div#blackout-screen");
+                blackout.hide();
+                return false;
+            }
+
+            function showCartSummary() {
+                theCart = $("div#cart");
+                theCart.show();
+            }
+
+            function hideCartSummary() {
+                theCart.hide();
+            }
+
+            function main() {
+                var theCart = $("a#cart-link");
+                theCart.mouseover(showCartSummary);
+
+                var closeCart = $("a#cart-close");
+                closeCart.click(hideCartSummary);
+
+                var closeLink = $("a#close-promotion");
+                closeLink.click(hideBlackoutScreen);
+                return false;
+            }
+            $(main);
+        </script>
     </body>
 </html>
